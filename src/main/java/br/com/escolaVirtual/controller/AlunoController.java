@@ -19,10 +19,17 @@ public class AlunoController {
 
         return alunoRepositorio.findAll();
     }
-
     @PostMapping
     public Aluno salvarAluno(@RequestBody Aluno aluno) {
 
         return alunoRepositorio.save(aluno);
+    }
+    @PutMapping("/{id}")
+    public Aluno alterarAluno(@RequestBody Aluno aluno){
+        return alunoRepositorio.save(aluno);
+    }
+    @DeleteMapping("/{id}")
+    public void deletarAluno(@PathVariable Integer id){
+        alunoRepositorio.deleteById(id);
     }
 }
